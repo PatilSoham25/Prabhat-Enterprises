@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  /* overflow-x: hidden; */
+}
+
+body {
+  background: #f9f9f9;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'Norwester';
+  src: url('/assets/fonts/norwester.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Main Banner Container */
+.landing-banner {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Default height for Desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hides image overflow for parallax */
+}
+
+/* Image Wrapper */
+.landing-img-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Force the image to act like a background cover */
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.05); /* Slightly scaled up to allow for parallax effect */
+    will-change: transform;
+}
+
+/* Dark Tint Overlay (Matches your header's dark purple) */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 7, 70, 0.6); 
+    z-index: 1;
+}
+
+/* Caption Container */
+.caption {
+    position: relative;
+    z-index: 2; /* Keeps text above the image and overlay */
+    text-align: center;
+    padding: 0 20px;
+    
+    /* Setup for JS fade-in animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Class added by JS to trigger animation */
+.caption.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heading Typography */
+.caption h1 {
+    font-family: 'Norwester', 'Oswald', sans-serif;
+    font-size: 5rem;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================= */
+@media (max-width: 992px) {
+    .landing-banner {
+        height: 300px;
+    }
+    .caption h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .landing-banner {
+        height: 220px; /* Shorter for mobile */
+    }
+    .caption h1 {
+        font-size: 2.5rem; /* Smaller text */
+        letter-spacing: 2px;
+    }
+}
+
+/* =============================================== */
+
+.products-section {
+    background: #f3f3f3a8;
+    padding: 60px 20px;
+}
+
+.products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   GRID LAYOUT
+   ========================================= */
+.services-grid {
+    display: grid;
+    /* Automatically creates columns based on available space. Minimum 300px wide */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Hide items beyond the 6th by default */
+.hidden-item {
+    display: none;
+}
+
+/* =========================================
+   CARD STYLING
+   ========================================= */
+.service-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Makes the entire card clickable */
+    height: 100%;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .img-wrapper img {
+    transform: scale(1.08); /* Slight zoom on hover */
+}
+
+.fab-ser-text {
+    padding: 25px 20px;
+}
+
+.fab-ser-text h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    text-transform: uppercase;
+}
+
+.fab-ser-text p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* =========================================
+   BUTTON STYLING
+   ========================================= */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-more-btn {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border: none;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.load-more-btn:hover {
+    background-color: #1a252f;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+    .img-wrapper {
+        height: 200px;
+    }
+}
+
+/* =============================================== */
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhat Enterprises - Industrial Kettles</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/main-products.css">
+
+    <link rel="icon" href="assets/img/company-logo.png">
+</head>
+<body>
+    <div id="header"></div>
+    <!-- Reusing the main-products classes ensures consistent styling and automatic interactivity -->
+    <section id="main-products-kettles" class="main-products-section">
+        <div class="main-products-container">
+            
+            <!-- Section Title -->
+            <h2 class="main-products-title">Industrial Jacketed Kettles</h2>
+            <div class="main-products-divider"></div>
+
+            <div class="main-products-layout">
+                
+                <!-- Left Side: Single Product Image -->
+                <div class="main-products-visual">
+                    <!-- Descriptive alt text for your image sourcing -->
+                    <img src="/assets/img/products/Industrial_Kettles.jfif" alt="Industrial Kettles" class="main-products-img">
+                    <span class="main-products-image-caption">Industrial Kettles</span>
+                </div>
+
+                <!-- Right Side: Interactive Information Panel -->
+                <div class="main-products-interactive-info">
+                    
+                    <!-- Clickable Tabs (Notice the unique data-targets for the kettle section) -->
+                    <div class="main-products-tabs">
+                        <button class="main-products-tab-btn active" data-target="kettle-overview">Overview</button>
+                        <button class="main-products-tab-btn" data-target="kettle-specs">Specifications</button>
+                        <button class="main-products-tab-btn" data-target="kettle-apps">Applications</button>
+                    </div>
+
+                    <!-- Tab Content 1: Overview (Visible by default) -->
+                    <div class="main-products-tab-content active" id="kettle-overview">
+                        <h3>Precision Heating & Cooking</h3>
+                        <p>Our industrial jacketed kettles are engineered for rapid, uniform heating and cooking of liquid and semi-solid products. The defining feature of these vessels is their hemispherical bottom, which provides superior heat transfer and eliminates the "burn-on" dead zones found in flat-bottomed tanks.</p>
+                        <p>By surrounding the inner vessel with a double-wall jacket, steam, hot water, or thermal fluid is circulated to gently and evenly cook the product. Paired with our custom scraped-surface agitators, these kettles keep viscous products moving, preventing thermal degradation and ensuring a perfect batch every time.</p>
+                    </div>
+
+                    <!-- Tab Content 2: Specifications (Hidden by default) -->
+                    <div class="main-products-tab-content" id="kettle-specs">
+                        <h3>Technical Specifications</h3>
+                        <ul class="main-products-list">
+                            <li><strong>Jacket Types:</strong> Conventional steam jacket, dimple jacket, or half-pipe coil.</li>
+                            <li><strong>Working Capacity:</strong> 10-gallon pilot kettles up to massive 1,000+ gallon production vessels.</li>
+                            <li><strong>Agitator Design:</strong> Scraped-surface, double-motion, or inclined agitators with Teflon/nylon scrapers.</li>
+                            <li><strong>Discharge Systems:</strong> Hydraulic tilt-out designs or flush-mounted bottom ball valves.</li>
+                            <li><strong>Pressure Ratings:</strong> ASME-certified jackets rated from 45 PSI to 150+ PSI.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab Content 3: Applications (Hidden by default) -->
+                    <div class="main-products-tab-content" id="kettle-apps">
+                        <h3>Industry Applications</h3>
+                        <p>Designed for easy clean-in-place (CIP) sanitation and extreme thermal efficiency, our kettles are the backbone of commercial cooking and processing:</p>
+                        <ul class="main-products-list">
+                            <li><strong>Food & Culinary:</strong> Soups, stews, gravies, pie fillings, jams, jellies, and caramel.</li>
+                            <li><strong>Beverage:</strong> Brewing mash tuns, syrup preparation, and pasteurization.</li>
+                            <li><strong>Cosmetics:</strong> Melting waxes, lip balms, lotions, and heavy creams.</li>
+                            <li><strong>Pharmaceuticals:</strong> Medicated ointments, gel capsules, and sterile heated suspensions.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+    <script src="assets/js/main-product.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

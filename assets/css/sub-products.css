@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  /* overflow-x: hidden; */
+}
+
+body {
+  background: #f9f9f9;
+}
+
+@font-face {
+  font-family: 'Norwester';
+  src: url('/assets/fonts/norwester.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ========================================= */
+/* INDUSTRIAL SCREW SECTION STYLES           */
+/* ========================================= */
+
+.industrial-screw-section {
+    background-color: #7787a0; /* Deep industrial charcoal */
+    color: #2b2b2b;
+    padding: 80px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-screw {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.screw-main-title {
+    text-align: center;
+    font-family: 'Norwester', sans-serif; /* Assumed global custom font */
+    font-size: 2.5rem;
+    color: #2b2b2b;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.screw-divider {
+    width: 80px;
+    height: 3px;
+    background-color: #e37222; /* SFI Orange */
+    margin: 20px auto 40px auto;
+}
+
+.screw-intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #2b2b2b; /* Subtler light grey text */
+    font-weight: 400;
+}
+
+/* Content Grid (2 Columns Desktop) */
+.screw-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Text section wider */
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Product Cards Grid (Inside Text Block) */
+.product-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive number of columns */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.sub-product-card {
+    background-color: #2b2b2b;
+    color: #fff; /* standard grey text color */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sub-product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.sub-product-card h3 {
+    font-family: 'Norwester', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: #e37222; /* SFI Orange headings inside cards */
+    margin: 0 0 15px 0;
+}
+
+.sub-product-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.spec-label {
+    font-family: 'Norwester', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    background-color: #f1f2f2;
+    color: #888888;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    align-self: flex-start; /* Keeps the label left-aligned */
+}
+
+/* Informational Paragraphs */
+.screw-info-block {
+    color: #2b2b2b;
+}
+
+.screw-info-block h4 {
+    font-size: 1.4rem;
+    color: #2b2b2b;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}
+
+.screw-info-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Image Styling */
+.screw-image-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    display: block;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN                         */
+/* ========================================= */
+
+@media (max-width: 992px) {
+    .screw-content-grid {
+        grid-template-columns: 1fr; /* Stack vertically on tablet */
+        gap: 50px;
+    }
+    
+    .screw-image-block {
+        order: -1; /* Move image above text on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .industrial-screw-section {
+        padding: 60px 0;
+    }
+    
+    .screw-main-title {
+        font-size: 2rem;
+    }
+}

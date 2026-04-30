@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhat Enterprises - Industrial Blenders</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/main-products.css">
+    <link rel="icon" href="assets/img/company-logo.png">
+</head>
+<body>
+    <div id="header"></div>
+
+    <!-- Reusing the main-products classes ensures consistent styling without writing new CSS -->
+    <section id="main-products-blenders" class="main-products-section">
+        <div class="main-products-container">
+            
+            <!-- Section Title -->
+            <h2 class="main-products-title">Industrial Blenders</h2>
+            <div class="main-products-divider"></div>
+
+            <div class="main-products-layout">
+                
+                <!-- Left Side: Single Product Image -->
+                <div class="main-products-visual">
+                    <!-- Descriptive alt text for your image sourcing -->
+                    <img src="/assets/img/products/Tilting_Drum_Mixers.jfif" alt="Industrial Blenders" class="main-products-img">
+                    <span class="main-products-image-caption">Industrial Blenders</span>
+                </div>
+
+                <!-- Right Side: Interactive Information Panel -->
+                <div class="main-products-interactive-info">
+                    
+                    <!-- Clickable Tabs (Notice the unique data-targets for the blender section) -->
+                    <div class="main-products-tabs">
+                        <button class="main-products-tab-btn active" data-target="blender-overview">Overview</button>
+                        <button class="main-products-tab-btn" data-target="blender-specs">Specifications</button>
+                        <button class="main-products-tab-btn" data-target="blender-apps">Applications</button>
+                    </div>
+
+                    <!-- Tab Content 1: Overview (Visible by default) -->
+                    <div class="main-products-tab-content active" id="blender-overview">
+                        <h3>Homogeneous Dry & Wet Blending</h3>
+                        <p>Our industrial blenders are the ultimate solution for achieving perfectly homogeneous mixtures of dry powders, granules, and heavy pastes. Unlike liquid mixing tanks, these horizontal and V-shaped blenders are specifically engineered to move dense, resistant materials with precision.</p>
+                        <p>Featuring highly engineered internal agitators—such as double-helical ribbons or sweeping paddles—our blenders ensure continuous lateral and radial movement, eliminating dead spots and dramatically reducing batch times.</p>
+                    </div>
+
+                    <!-- Tab Content 2: Specifications (Hidden by default) -->
+                    <div class="main-products-tab-content" id="blender-specs">
+                        <h3>Technical Specifications</h3>
+                        <ul class="main-products-list">
+                            <li><strong>Blender Types:</strong> Ribbon Blenders, Paddle Blenders, and V-Cone Powder Blenders.</li>
+                            <li><strong>Working Capacity:</strong> Ranging from 5 cubic feet (lab scale) to 500+ cubic feet (mass production).</li>
+                            <li><strong>Agitator Design:</strong> Solid stainless steel shafts with precision-pitched inner and outer ribbons.</li>
+                            <li><strong>Drive Systems:</strong> Heavy-duty gear motors, chain drives, or direct-drive alignments.</li>
+                            <li><strong>Discharge Mechanisms:</strong> Manual slide gates or pneumatically actuated butterfly valves.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab Content 3: Applications (Hidden by default) -->
+                    <div class="main-products-tab-content" id="blender-apps">
+                        <h3>Industry Applications</h3>
+                        <p>Engineered for extreme durability and easy sanitation, our blenders handle some of the most demanding bulk materials across various sectors:</p>
+                        <ul class="main-products-list">
+                            <li><strong>Food Processing:</strong> Bakery premixes, spice blends, protein powders, and trail mixes.</li>
+                            <li><strong>Nutraceuticals:</strong> Vitamin powders, dietary supplements, and herbal extracts.</li>
+                            <li><strong>Plastics & Chemicals:</strong> Resin blending, colorant mixing, and dry chemical compounding.</li>
+                            <li><strong>Construction:</strong> Cement, grout, and dry mortar mixes.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="assets/js/main-product.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
