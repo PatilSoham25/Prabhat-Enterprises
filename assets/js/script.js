@@ -190,6 +190,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 });
+// =======================================
+// From this About JS starts
+// =======================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the hero content container
+    const heroContent = document.querySelector('.hero-content');
+    
+    // Add a slight delay (100ms) before triggering the animation
+    // This ensures the browser has rendered the page before starting the movement
+    if (heroContent) {
+        setTimeout(() => {
+            heroContent.classList.add('fade-in');
+        }, 100);
+    }
+});
 
 // =======================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all elements with the 'reveal-on-scroll' class
+    const reveals = document.querySelectorAll('.reveal-on-scroll');
 
+    // Create a new Intersection Observer
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // If the element is visible in the viewport
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: Stop observing once it has been revealed
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        // Trigger the animation when the element is 15% visible from the bottom
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    // Attach the observer to each reveal element
+    reveals.forEach(reveal => {
+        revealObserver.observe(reveal);
+    });
+});

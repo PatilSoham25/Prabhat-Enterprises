@@ -18,21 +18,26 @@ body {
   font-style: normal;
 }
 
+/* General Reset & Layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .header {
   background-color: #fff;
-  color: #58595B;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: relative;
   z-index: 1000;
 }
 
-.navbar-container.nav {
+.container.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
   max-width: 1200px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .logo img {
@@ -50,7 +55,7 @@ body {
 }
 
 .nav-list > li > a {
-  color: #58595B;
+  color: #1a1a1a;
   text-decoration: none;
   font-weight: bold;
   padding: 10px;
@@ -78,7 +83,7 @@ body {
 .dropdown-content {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
   background-color: #fff;
   min-width: 220px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -90,14 +95,14 @@ body {
   /* Hidden by default with smooth transition */
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
+  transform: translate(-60%, 10px);
   transition: all 0.3s ease;
 }
 
 .dropdown:hover > .dropdown-content {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translate(-60%, 0);
 }
 
 .dropdown-content li a {
@@ -232,7 +237,6 @@ body {
     display: inline-block;
   }
 }
-
 /* ======================= */
 /* HERO SECTION */
 .hero {

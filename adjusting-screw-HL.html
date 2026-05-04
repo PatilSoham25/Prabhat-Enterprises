@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjusting Screw HL - Prabhat Enterprises</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="/assets/img/company-logo.png">
+    
+    <style>
+        /* ========================================= */
+        /* GENERAL RESET & FONTS                     */
+        /* ========================================= */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* ========================================= */
+        /* SUB-PRODUCT HERO BANNER                   */
+        /* ========================================= */
+        .sub-product-banner {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .sub-product-banner img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4; /* Darkens the image so text pops */
+            transform: scale(1.05);
+        }
+
+        .banner-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+        }
+
+        .banner-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .banner-text p {
+            font-size: 1.2rem;
+            color: #e37222; /* Industrial Orange */
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ========================================= */
+        /* PRODUCT DETAILS SECTION                   */
+        /* ========================================= */
+        .single-product-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        /* Image Styling */
+        .product-image-wrapper {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* Interactive Tabs Styling */
+        .product-info-wrapper {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid #eeeeee;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: #333;
+        }
+
+        .tab-btn.active {
+            color: #e37222;
+            border-bottom: 3px solid #e37222;
+        }
+
+        /* Tab Content Styling */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: #2b2b2b;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .tab-content p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .feature-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #e37222;
+            font-weight: bold;
+        }
+
+        .feature-list strong {
+            color: #222;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========================================= */
+        /* RESPONSIVE DESIGN                         */
+        /* ========================================= */
+        @media (max-width: 992px) {
+            .product-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .banner-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sub-product-banner {
+                height: 250px;
+            }
+            .banner-text h1 {
+                font-size: 2.2rem;
+            }
+            .tabs-header {
+                flex-wrap: wrap;
+            }
+            .tab-btn {
+                flex: 1 1 100%;
+                text-align: left;
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+            .tab-btn.active {
+                border-bottom: none;
+                border-left: 3px solid #e37222;
+                background-color: #f9f9f9;
+            }
+            .product-info-wrapper {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Placeholder for your standard Header -->
+    <div id="header"></div>
+
+    <!-- Hero Banner -->
+    <section class="sub-product-banner">
+        <div class="banner-text">
+            <h1>Adjusting Screw HL</h1>
+            <p>High-Load Structural Adjustments</p>
+        </div>
+    </section>
+
+    <!-- Main Product Section -->
+    <section class="single-product-section">
+        <div class="product-layout">
+            
+            <!-- Left Side: Product Image -->
+            <div class="product-image-wrapper">
+                <!-- Detailed Alt Text for SEO -->
+                <img src="/assets/img/products/adjusting-screw-HL.jfif" alt="Adjusting Screw HL">
+            </div>
+
+            <!-- Right Side: Interactive Info -->
+            <div class="product-info-wrapper">
+                
+                <!-- Tab Navigation -->
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-target="info-overview">Overview</button>
+                    <button class="tab-btn" data-target="info-specs">Specifications</button>
+                    <button class="tab-btn" data-target="info-apps">Applications</button>
+                </div>
+
+                <!-- Tab 1: Overview -->
+                <div class="tab-content active" id="info-overview">
+                    <h3>Heavy-Duty Load Distribution</h3>
+                    <p>The Adjusting Screw HL (High-Load) is engineered for the most demanding structural alignment and leveling applications. This robust fastener is designed to support and precisely adjust massive static and dynamic loads, ensuring stable positioning for heavy machinery and structural frameworks.</p>
+                    <p>Manufactured with an emphasis on shear strength and axial load capacity, the HL series frequently incorporates a specialized swivel pad or a hardened flat tip. This design allows for even weight distribution across uneven surfaces, preventing point-loading damage while maintaining pinpoint accuracy during the leveling process.</p>
+                </div>
+
+                <!-- Tab 2: Specifications -->
+                <div class="tab-content" id="info-specs">
+                    <h3>Technical Specifications</h3>
+                    <ul class="feature-list">
+                        <li><strong>Material:</strong> Forged Carbon Steel or high-grade Stainless Steel for exceptional load-bearing capacity.</li>
+                        <li><strong>Load Capacity:</strong> Rated for extreme static loads, often exceeding 10,000 lbs depending on the specific thread diameter and pitch.</li>
+                        <li><strong>Thread Design:</strong> Coarse threads (UNC/Metric Coarse) optimized for strength and resistance to stripping under heavy tension.</li>
+                        <li><strong>Head Style:</strong> Oversized hexagonal or square heads for maximum wrench engagement and high-torque adjustments.</li>
+                        <li><strong>Base Integration:</strong> Available with articulated swivel pads to accommodate angled surfaces up to 15 degrees.</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 3: Applications -->
+                <div class="tab-content" id="info-apps">
+                    <h3>Industry Applications</h3>
+                    <p>The Adjusting Screw HL is the standard choice for scenarios where precision meets immense weight:</p>
+                    <ul class="feature-list">
+                        <li><strong>Machine Tooling:</strong> Leveling feet for massive CNC lathes, milling machines, and industrial presses.</li>
+                        <li><strong>Construction & Structural:</strong> Temporary support and final alignment of steel girders and pre-cast concrete elements.</li>
+                        <li><strong>Conveyor Systems:</strong> Precision height adjustment and leveling for heavy-duty material handling tracks.</li>
+                        <li><strong>Power Generation:</strong> Alignment of large generators, turbines, and heavy pump skids on uneven foundations.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Placeholder for your standard Footer -->
+    <div id="footer"></div>
+
+    <script src="assets/js/script.js"></script>
+    <!-- JavaScript for Tab Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active state from all buttons and content
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active state to clicked button
+                    button.classList.add('active');
+
+                    // Show corresponding content
+                    const targetId = button.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

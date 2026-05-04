@@ -1,0 +1,693 @@
+/* Fallback web font just in case Norwester doesn't load */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Standard body text fallback */
+}
+
+/* ========================================= */
+/* HERO SECTION STYLING                      */
+/* ========================================= */
+
+.hero-section {
+    position: relative;
+    height: 100vh; /* Takes up the full height of the user's screen */
+    min-height: 600px; /* Prevents it from getting too short on small landscape screens */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Background Image Setup */
+    /* Replace with an actual high-res image of your facility or products */
+    background-image: url('/assets/img/about-us.jfif'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a premium parallax scrolling effect */
+    
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* A dark gradient that is darker at the top to support header text, fading slightly at the bottom */
+    background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.6) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+    
+    /* Initial state for JavaScript animation */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Class added by JS to trigger the fade-up animation */
+.hero-content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Button Styling */
+.btn {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #e37222;
+    color: #ffffff;
+    border: 2px solid #e37222;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #e37222;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN                         */
+/* ========================================= */
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll; /* Disabling parallax on mobile prevents jittery scrolling */
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .btn {
+        width: 100%; /* Makes buttons full-width on very small phone screens */
+        box-sizing: border-box;
+    }
+}
+/* ========================================= */
+/* ABOUT US SECTION STYLING                  */
+/* ========================================= */
+
+.prabhat-about-section {
+    background-color: #ffffff; /* Clean white background as requested */
+    color: #333333;
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Prevents horizontal scroll from animations */
+}
+
+.prabhat-about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.prabhat-about-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0;
+}
+
+.about-divider {
+    width: 80px;
+    height: 4px;
+    background-color: #e37222; /* Industrial Orange */
+    margin: 0 auto 20px auto;
+}
+
+.about-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Layout for Story and Image */
+.prabhat-about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.prabhat-about-text h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #2b2b2b;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.prabhat-about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.prabhat-about-text strong {
+    color: #2b2b2b;
+}
+
+.about-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 30px;
+    background-color: #e37222;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.about-btn:hover {
+    background-color: #c96019; /* Darker orange on hover */
+}
+
+/* Image & Badge Styling */
+.prabhat-about-image {
+    position: relative;
+    border-radius: 8px;
+}
+
+.prabhat-about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 25px 35px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 5px solid #e37222;
+}
+
+.exp-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: #e37222;
+}
+
+.exp-text {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+/* Values Grid */
+.prabhat-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    background-color: #f9f9f9;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.value-card h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    color: #2b2b2b;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.value-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================= */
+/* CSS ANIMATION CLASSES                     */
+/* ========================================= */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+/* ========================================= */
+/* RESPONSIVE DESIGN                         */
+/* ========================================= */
+@media (max-width: 992px) {
+    .prabhat-about-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .experience-badge {
+        bottom: -20px;
+        left: 20px; /* Moves badge inside on smaller screens */
+    }
+    .prabhat-values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 2.5rem;
+    }
+    .prabhat-values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================= */
+/* VISION & MISSION SECTION STYLING          */
+/* ========================================= */
+
+.prabhat-vm-section {
+    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%); /* Premium dark gradient */
+    color: #ffffff;
+    padding: 100px 20px;
+    font-family: 'Poppins', sans-serif;
+    perspective: 1000px; /* Required for the 3D tilt effect */
+}
+
+.prabhat-vm-container {
+    max-width: 1000px; /* Slightly narrower for focused reading */
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.prabhat-vm-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.vm-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0;
+}
+
+.vm-divider {
+    width: 80px;
+    height: 4px;
+    background-color: #e37222; /* Industrial Orange */
+    margin: 0 auto 20px auto;
+}
+
+.vm-subtitle {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Layout for Cards */
+.prabhat-vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Card Styling */
+.vm-card {
+    background-color: #242424; /* Dark grey to stand out from background */
+    padding: 50px 40px;
+    border-radius: 12px;
+    border-top: 4px solid #e37222; /* Orange accent border */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; /* Fast transition for JS tilt */
+    transform-style: preserve-3d; /* Required for 3D effect */
+    will-change: transform;
+}
+
+.vm-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(227, 114, 34, 0.1); /* Subtle orange background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transform: translateZ(30px); /* Pushes icon out in 3D space */
+}
+
+.vm-icon {
+    width: 35px;
+    height: 35px;
+    color: #e37222;
+}
+
+.vm-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    transform: translateZ(20px); /* Pushes text out in 3D space */
+}
+
+.vm-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #cccccc;
+    margin: 0;
+    transform: translateZ(10px); /* Pushes text out in 3D space */
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN                         */
+/* ========================================= */
+@media (max-width: 768px) {
+    .prabhat-vm-grid {
+        grid-template-columns: 1fr; /* Stacks cards on mobile */
+    }
+    .vm-title {
+        font-size: 2.5rem;
+    }
+    .vm-card {
+        padding: 40px 30px;
+    }
+}
+
+/* ========================================= */
+/* PRODUCT INFO & CTA CARD STYLING           */
+/* ========================================= */
+
+.prabhat-cta-section {
+    background-color: #f9f9f9; /* Light background makes the dark card pop */
+    padding: 100px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.prabhat-cta-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cta-card {
+    background: linear-gradient(145deg, #1a1a1a 0%, #242424 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 6px solid #e37222; /* Thick orange anchor border */
+}
+
+/* Optional: Background subtle industrial pattern or shape */
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(227, 114, 34, 0.08) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Info Side (Left) */
+.cta-info {
+    position: relative;
+    z-index: 1;
+    flex: 1.2;
+    padding-right: 40px;
+}
+
+.cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.cta-divider {
+    width: 60px;
+    height: 4px;
+    background-color: #e37222;
+    margin-bottom: 25px;
+}
+
+.cta-desc {
+    color: #cccccc;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.cta-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cta-checklist li {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.cta-checklist li svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+/* Action Side (Right) */
+.cta-action {
+    position: relative;
+    z-index: 1;
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 40px;
+}
+
+.cta-contact-details {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.cta-contact-details p {
+    color: #a0a0a0;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.cta-contact-details strong {
+    color: #ffffff;
+}
+
+/* Magnetic Button Wrapper */
+.magnetic-wrap {
+    display: inline-block;
+    padding: 20px; /* Provides hover area for the magnet effect */
+    margin: -20px; 
+}
+
+.magnetic-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e37222;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.magnetic-btn:hover {
+    border: 3px double white;
+    background-color: #534c47;
+}
+
+.btn-text {
+    pointer-events: none; /* Prevents text from interfering with hover calculation */
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN                         */
+/* ========================================= */
+@media (max-width: 992px) {
+    .cta-card {
+        flex-direction: column;
+        padding: 50px 40px;
+        text-align: center;
+    }
+    .cta-info {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    .cta-divider {
+        margin: 0 auto 25px auto;
+    }
+    .cta-checklist li {
+        justify-content: center;
+    }
+    .cta-action {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-left: 0;
+        padding-top: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .cta-contact-details {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-title {
+        font-size: 2.2rem;
+    }
+    .cta-card {
+        padding: 40px 25px;
+    }
+    .magnetic-btn {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
