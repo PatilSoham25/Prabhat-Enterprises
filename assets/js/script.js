@@ -13,35 +13,44 @@ fetch("/header.html")
   })
   .catch(error => console.error("Error loading the header:", error));
 
-
 // 3. Function to handle all navigation logic
 function initializeMobileMenu() {
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  
-  // Safety check: Make sure the elements exist before attaching events
-  if (!menuToggle || !navLinks) {
-    console.warn("Menu toggle or Nav links not found in the injected header.");
-    return;
-  }
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    // Safety check
+    if (!menuToggle || !navLinks) {
+        console.warn("Menu toggle or Nav links not found.");
+        return;
+    }
 
-  // Handle the main mobile menu hamburger toggle
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Handle the mobile dropdown accordion logic
-  const dropdownLinks = document.querySelectorAll('.dropdown > a, .sub-dropdown > a');
-  
-  dropdownLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      // Only apply accordion behavior on mobile screens (768px or smaller)
-      if (window.innerWidth <= 768) {
-        e.preventDefault(); // Stop the link from navigating immediately
-        this.parentElement.classList.toggle('open'); // Open/close the sub-menu
-      }
+    // Handle the main mobile menu hamburger toggle
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-  });
+
+    // Handle the mobile dropdown accordion logic
+    const dropdownLinks = document.querySelectorAll('.dropdown > a, .sub-dropdown > a');
+    
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+        
+        // Only apply accordion behavior on mobile screens
+        if (window.innerWidth <= 768) {
+            
+            // Find the parent list item (<li>)
+            const parentLi = this.parentElement;
+            
+            // Check if this list item actually contains a <ul> inside it
+            const hasSubMenu = parentLi.querySelector('ul');
+            
+            if (hasSubMenu) {
+            e.preventDefault(); // Stop the link from navigating to a new page
+            parentLi.classList.toggle('open'); // Open or close the sub-menu
+            }
+        }
+        });
+    });
 }
 
 // =====================================

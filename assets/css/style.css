@@ -6,9 +6,9 @@
   /* overflow-x: hidden; */
 }
 
-body {
-  background: #f9f9f9;
-  overflow-x: hidden;
+body, html {
+    overflow-x: hidden; /* Absolutely prevents horizontal scrolling */
+    font-family: 'Poppins', sans-serif;
 }
 
 @font-face {
@@ -18,225 +18,266 @@ body {
   font-style: normal;
 }
 
-/* General Reset & Layout */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+/* ========================================= */
+/* GLOBAL RESET (Fixes the right-side gap)   */
+/* ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
+/* ========================================= */
+/* HEADER & BASE NAVIGATION                  */
+/* ========================================= */
 .header {
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
+    width: 100%;
 }
 
 .container.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 5%;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo img {
-  height: 40px; /* Adjust based on your logo */
+    height: 40px; 
+    display: block;
 }
 
-/* Base Navigation Styling */
 .nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .nav-list > li > a {
-  color: #1a1a1a;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px;
-  transition: color 0.3s ease;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .nav-list a:hover {
-  color: #f39c12; /* Accent color on hover */
+    color: #e37222; /* Industrial Orange */
 }
 
 .arrow {
-  font-size: 0.7em;
-  margin-left: 5px;
+    font-size: 0.7em;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
 }
 
-/* ========================================= */
-/* DESKTOP DROPDOWN LOGIC                    */
-/* ========================================= */
-
-/* First Level Dropdown */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  background-color: #fff;
-  min-width: 220px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-radius: 4px;
-  
-  /* Hidden by default with smooth transition */
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(-60%, 10px);
-  transition: all 0.3s ease;
-}
-
-.dropdown:hover > .dropdown-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-60%, 0);
-}
-
-.dropdown-content li a {
-  color: #333;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #eee;
-}
-
-.dropdown-content li:last-child a {
-  border-bottom: none;
-}
-
-.dropdown-content li a:hover {
-  background-color: #f9f9f9;
-  color: #f39c12;
-}
-
-/* Second Level Dropdown (Sub-Products) */
-.sub-dropdown {
-  position: relative;
-}
-
-.sub-dropdown-content {
-  position: absolute;
-  top: 0;
-  left: 100%; /* Pushes it to the right of the parent */
-  background-color: #fff;
-  min-width: 200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-radius: 4px;
-  
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(10px);
-  transition: all 0.3s ease;
-}
-
-.sub-dropdown:hover > .sub-dropdown-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-/* ========================================= */
-/* MOBILE RESPONSIVE DESIGN                  */
-/* ========================================= */
-
+/* Hide the hamburger menu on desktop */
 .menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  .nav-links.active {
-    display: block;
-  }
-
-  .nav-list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  .nav-list > li {
-    width: 100%;
-    border-bottom: 1px solid #444;
-  }
-
-  .nav-list > li > a {
-    display: block;
-    padding: 15px 20px;
-  }
-
-  /* Reset Dropdowns for Mobile */
-  .dropdown-content, .sub-dropdown-content {
-    position: static;
-    box-shadow: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    display: none; /* Hide via display none on mobile instead of opacity */
-    background-color: #444; /* Slightly lighter background to differentiate */
-    min-width: 100%;
-  }
-
-  .dropdown-content li a {
-    color: white;
-    padding: 12px 30px; /* Indent first level */
-    border-bottom-color: #555;
-  }
-  
-  .sub-dropdown-content li a {
-    padding: 12px 40px; /* Indent second level */
-    background-color: #555;
-  }
-
-  .dropdown-content li a:hover, .sub-dropdown-content li a:hover {
-    background-color: #666;
-  }
-
-  /* JS toggled classes for mobile accordions */
-  .dropdown.open > .dropdown-content,
-  .sub-dropdown.open > .sub-dropdown-content {
-    display: block;
-  }
-  
-  /* Rotate arrow when open on mobile */
-  .dropdown.open > a .arrow,
-  .sub-dropdown.open > a .arrow {
-    transform: rotate(90deg);
-    display: inline-block;
-  }
+    font-size: 28px;
+    cursor: pointer;
+    color: #1a1a1a;
 }
+
+/* ========================================= */
+/* DESKTOP DROPDOWN LOGIC (Screens > 768px)  */
+/* ========================================= */
+@media (min-width: 769px) {
+    /* First Level Dropdown */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        background-color: #fff;
+        min-width: 220px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 4px;
+        
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-50%, 15px);
+        transition: all 0.3s ease;
+    }
+
+    .dropdown:hover > .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0);
+    }
+
+    .dropdown-content li a {
+        color: #333;
+        padding: 12px 20px;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .dropdown-content li:last-child a {
+        border-bottom: none;
+    }
+
+    .dropdown-content li a:hover {
+        background-color: #f9f9f9;
+        color: #e37222;
+    }
+
+    /* Second Level Dropdown (Sub-Products) */
+    .sub-dropdown {
+        position: relative;
+    }
+
+    .sub-dropdown-content {
+        position: absolute;
+        top: 0;
+        left: 100%; /* Pushes to the right */
+        background-color: #fff;
+        min-width: 200px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 4px;
+        
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(15px);
+        transition: all 0.3s ease;
+    }
+
+    .sub-dropdown:hover > .sub-dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================= */
+/* MOBILE RESPONSIVE DESIGN (Screens <= 768px)*/
+/* ========================================= */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      color: #1a1a1a;
+    }
+
+    /* Force the menu to be full width and cover the screen properly */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%; 
+      background-color: #ffffff;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      z-index: 1001;
+      padding: 0;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+    .nav-list > li {
+        width: 100%;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .nav-list > li > a {
+      display: flex;
+      justify-content: space-between; /* Text on left, arrow on right */
+      align-items: center;
+      padding: 18px 25px;
+      font-size: 1.1rem;
+      color: #333;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Reset Dropdowns for Mobile Accordion */
+    .dropdown-content, .sub-dropdown-content {
+      position: static; /* Force accordion flow, removes absolute positioning */
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      width: 100%;
+      display: none; /* Hidden by default until clicked */
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown-content {
+        background-color: #f5f5f5; /* Light gray for Level 2 */
+    }
+
+    .sub-dropdown-content {
+        background-color: #f1f1f1; /* Darker gray for Level 3 */
+    }
+
+    /* JavaScript toggled class for opening menus */
+    .dropdown.open > .dropdown-content,
+    .sub-dropdown.open > .sub-dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content li, .sub-dropdown-content li {
+      width: 100%;
+      list-style: none;
+    }
+
+    /* Indentation so users know it's a submenu */
+    .dropdown-content li a {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 25px 15px 40px; /* Indents the first level */
+      color: #444;
+      text-decoration: none;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .sub-dropdown-content li a {
+      padding: 15px 25px 15px 60px; /* Indents the second level further */
+      color: #555;
+      font-size: 0.95rem;
+      font-weight: normal;
+    }
+
+    /* Arrow rotation on mobile when open */
+    .dropdown.open > a .arrow,
+    .sub-dropdown.open > a .arrow {
+        transform: rotate(90deg);
+    }
+}
+
 /* ======================= */
 /* HERO SECTION */
 .hero {
