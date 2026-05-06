@@ -55,12 +55,31 @@ function initializeMobileMenu() {
 
 // =====================================
 
-const cards = document.querySelectorAll(".service-card");
+document.addEventListener('DOMContentLoaded', () => {
+    const imageBoxes = document.querySelectorAll('.image-box');
 
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    card.classList.toggle("active");
-  });
+    imageBoxes.forEach(box => {
+        box.addEventListener('click', function(e) {
+            // Only apply touch logic if we are on a smaller screen (tablet/mobile)
+            if (window.innerWidth <= 992) {
+                // If the box is already active and they click the button, let the link work normally
+                if (e.target.classList.contains('btn')) {
+                    return; 
+                }
+
+                // Prevent the first tap from immediately navigating away
+                e.preventDefault();
+
+                // Remove active class from all other boxes so only one is open at a time
+                imageBoxes.forEach(b => {
+                    if (b !== this) b.classList.remove('active');
+                });
+
+                // Toggle the active state on the tapped box
+                this.classList.toggle('active');
+            }
+        });
+    });
 });
 
 // =====================================
