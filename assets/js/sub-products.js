@@ -27,3 +27,34 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 });
+
+// ====Floater===============
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Select the Back to Top button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (backToTopBtn) {
+        
+        // 1. Listen for scrolling
+        window.addEventListener('scroll', () => {
+            // If the user scrolls down more than 300 pixels
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show'); // Pop the button in
+            } else {
+                backToTopBtn.classList.remove('show'); // Hide the button
+            }
+        });
+
+        // 2. Listen for the click
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Smoothly scroll the window back to the top (0,0)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});

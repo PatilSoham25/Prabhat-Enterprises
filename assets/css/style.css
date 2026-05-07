@@ -1064,11 +1064,13 @@ body, html {
 }
 
 .footer-tagline {
+    /* word-spacing: 5px; */
     font-size: 1.2rem;
     font-weight: bolder;
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 0;
     color: #cccccc;
+    text-align: justify;
 }
 
 /* --- Divider --- */
@@ -1128,39 +1130,53 @@ body, html {
     transform: translateX(5px); /* Cleaner slide effect than using padding */
 }
 
-/* --- Bottom Section (Legal & Social) --- */
-.sfi-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 0.85rem;
-}
-
-.sfi-legal a {
-    color: #e37222;
-    text-decoration: none;
-}
-
-.sfi-legal a:hover {
-    text-decoration: underline;
-}
-
+/* --- Social Media Icons in Contact Column --- */
 .sfi-social {
     display: flex;
     gap: 15px;
+    margin-top: 15px; /* Adds space above the icons */
+    justify-content: flex-start; /* Aligns them to the left to match the text */
 }
 
 .sfi-social a {
     color: #ffffff;
+    font-size: 20px; /* This sets the size of the new icons */
     transition: transform 0.3s ease, color 0.3s ease;
     display: inline-block;
 }
 
 .sfi-social a:hover {
     color: #e37222;
-    transform: translateY(-3px); /* Makes icons "hop" up slightly when hovered */
+    transform: translateY(-3px);
+}
+
+
+/* --- Bottom Section (Legal Center Alignment) --- */
+.sfi-bottom {
+    display: flex;
+    justify-content: center; /* Centers the legal text completely */
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+}
+
+.sfi-legal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows text to drop to a new line on very small phone screens if needed */
+    gap: 6px; /* Spacing between copyright and developer credit */
+}
+
+.sfi-legal a {
+    color: #e37222;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sfi-legal a:hover {
+    text-decoration: underline;
 }
 
 /* ========================================= */
@@ -1184,9 +1200,9 @@ body, html {
     .sfi-brand-right {
         min-width: 100%;
     }
-    .sfi-bottom {
-        flex-direction: column;
-        text-align: center;
+    /* When Contact column stacks on mobile, center the social icons */
+    .sfi-col.sfi-contact .sfi-social {
+        justify-content: left; 
     }
 }
 
@@ -1194,5 +1210,124 @@ body, html {
     .sfi-middle {
         grid-template-columns: 1fr; /* Switch to 1 single stacking column on phones */
         text-align: center;
+    }
+    .sfi-col ul {
+        text-align: left; /* Centers the list items on tiny screens */
+    }
+    .sfi-dev-credit {
+        /* Removes the "|" symbol on tiny phone screens where it might stack on two lines */
+        display: block; 
+        color: transparent;
+    }
+    .sfi-dev-credit::after {
+        content: "Developed by ";
+        color: #a0a0a0;
+        margin-left: -10px; /* Hides the original pipe symbol visually */
+    }
+}
+/* ==========Floaters=========== */
+/* ========================================= */
+/* FLOATING ACTION BUTTONS                   */
+/* ========================================= */
+.floating-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between the buttons */
+    z-index: 9999; /* Ensures they are always on top of everything */
+}
+
+/* Base button styling */
+.float-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Icon sizing */
+.float-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+/* Universal hover effect */
+.float-btn:hover {
+    transform: translateY(-5px); /* Hop up slightly */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.float-btn:hover svg {
+    transform: scale(1.1); /* Icon slightly zooms in */
+}
+
+/* --- Specific Button Colors & Logic --- */
+
+/* 1. Back to Top Button */
+.top-btn {
+    background-color: #333333; /* Dark industrial grey */
+    opacity: 0;           /* Hidden by default */
+    visibility: hidden;   /* Hidden by default */
+    transform: scale(0.5); /* Shrunk by default */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+}
+
+/* Class added by JavaScript when scrolled down */
+.top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); 
+}
+
+.top-btn:hover {
+    background-color: #1a1a1a;
+}
+
+/* 2. Phone Button */
+.phone-btn {
+    background-color: #e37222; /* Prabhat Industrial Orange */
+}
+
+.phone-btn:hover {
+    background-color: #c96019;
+}
+
+/* 3. WhatsApp Button */
+.wa-btn {
+    background-color: #25D366; /* Official WhatsApp Green */
+}
+
+.wa-btn:hover {
+    background-color: #1ebe57;
+}
+
+/* ========================================= */
+/* MOBILE RESPONSIVE TWEAKS                  */
+/* ========================================= */
+@media (max-width: 768px) {
+    .floating-container {
+        bottom: 20px;
+        right: 20px;
+        gap: 12px;
+    }
+    .float-btn {
+        width: 48px;
+        height: 48px;
+    }
+    .float-btn svg {
+        width: 24px;
+        height: 24px;
     }
 }

@@ -272,4 +272,108 @@ body {
 }
 
 /* =============================================== */
+/* ========================================= */
+/* FLOATING ACTION BUTTONS                   */
+/* ========================================= */
+.floating-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between the buttons */
+    z-index: 9999; /* Ensures they are always on top of everything */
+}
 
+/* Base button styling */
+.float-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Icon sizing */
+.float-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+/* Universal hover effect */
+.float-btn:hover {
+    transform: translateY(-5px); /* Hop up slightly */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.float-btn:hover svg {
+    transform: scale(1.1); /* Icon slightly zooms in */
+}
+
+/* --- Specific Button Colors & Logic --- */
+
+/* 1. Back to Top Button */
+.top-btn {
+    background-color: #333333; /* Dark industrial grey */
+    opacity: 0;           /* Hidden by default */
+    visibility: hidden;   /* Hidden by default */
+    transform: scale(0.5); /* Shrunk by default */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+}
+
+/* Class added by JavaScript when scrolled down */
+.top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); 
+}
+
+.top-btn:hover {
+    background-color: #1a1a1a;
+}
+
+/* 2. Phone Button */
+.phone-btn {
+    background-color: #e37222; /* Prabhat Industrial Orange */
+}
+
+.phone-btn:hover {
+    background-color: #c96019;
+}
+
+/* 3. WhatsApp Button */
+.wa-btn {
+    background-color: #25D366; /* Official WhatsApp Green */
+}
+
+.wa-btn:hover {
+    background-color: #1ebe57;
+}
+
+/* ========================================= */
+/* MOBILE RESPONSIVE TWEAKS                  */
+/* ========================================= */
+@media (max-width: 768px) {
+    .floating-container {
+        bottom: 20px;
+        right: 20px;
+        gap: 12px;
+    }
+    .float-btn {
+        width: 48px;
+        height: 48px;
+    }
+    .float-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+}
